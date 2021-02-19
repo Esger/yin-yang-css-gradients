@@ -36,5 +36,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
         console.log(backgroundImage);
     };
 
-    setGradients(90);
+    setGradients(99);
 });
