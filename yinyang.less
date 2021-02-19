@@ -1,0 +1,128 @@
+@centerX    : 50vw;
+@centerY    : 50vh;
+@size       : 62vmin;
+@halfSize   : calc(@size / 2);
+@quarterSize: calc(@size / 4);
+@dotSize    : calc(@halfSize / 6);
+@blackDotX  : 50%;
+@blackDotY  : calc(@centerY - @quarterSize);
+@whiteDotX  : 50%;
+@whiteDotY  : calc(@centerY + @quarterSize);
+@duration   : 0s;
+@black      : #191919;
+@white      : #e6e6e6;
+
+html {
+    background-image:
+        radial-gradient(circle at @blackDotX @blackDotY, @black @dotSize, @white 0 @quarterSize, transparent 0 100%),
+        radial-gradient(circle at @whiteDotX @whiteDotY, @white @dotSize, @black 0 @quarterSize, transparent 0 100%),
+        linear-gradient(90deg, transparent 0 @centerX, @black @centerX 100%),
+        linear-gradient(90deg, @white 0 @centerX, transparent @centerX 100%);
+    background-position: 0 0;
+    background-repeat  : no-repeat;
+}
+
+o {
+    background-image:
+        radial-gradient(circle at @blackDotX @blackDotY, @black @dotSize, transparent 0 @quarterSize, transparent 0 100%),
+        radial-gradient(circle at @whiteDotX @whiteDotY, transparent @dotSize, @black 0 @quarterSize, transparent 0 100%),
+        linear-gradient(at 90deg, transparent 0 @centerX, @black @centerX 100%),
+        linear-gradient(at 90deg, @white 0 @centerX, transparent @centerX 100%),
+        linear-gradient(at 90deg, @black 0 @centerX, transparent @centerX 100%),
+        radial-gradient(circle at @blackDotX @blackDotY, @black @dotSize, @white 0 @quarterSize, transparent 0 100%),
+        radial-gradient(circle at @whiteDotX @whiteDotY, @white @dotSize, @black 0 @quarterSize, transparent 0 100%);
+
+}
+
+body {
+    height    : 100vh;
+    margin    : 0;
+    background: radial-gradient(circle, transparent @halfSize, #81d4fa @halfSize 100%);
+}
+
+.yang__head {
+    bottom          : 0;
+    transform-origin: top;
+    background      : radial-gradient(@black @dotSize, @white 0);
+    animation       : zIndexYangHead @duration linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateYinBody {
+    0% {
+        transform : rotate(0deg);
+        // z-index: 2;
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform : rotate(360deg);
+        // z-index: 1;
+    }
+}
+
+@keyframes rotateYinHead {
+    0% {
+        transform : rotate(0deg);
+        // z-index: 4;
+    }
+
+    50% {
+        transform : rotate(180deg);
+        // z-index: 1;
+    }
+
+    100% {
+        transform : rotate(360deg);
+        // z-index: 3;
+    }
+}
+
+@keyframes zIndexYangBody {
+    0% {
+        // transform: rotate(0deg);
+        z-index: 0;
+    }
+
+    50% {
+        // transform: rotate(180deg);
+    }
+
+    100% {
+        // transform: rotate(360deg);
+        // z-index: 1;
+    }
+}
+
+@keyframes zIndexYangHead {
+    0% {
+        // transform: rotate(0deg);
+        z-index: 4;
+    }
+
+    50% {
+        // transform: rotate(180deg);
+        // z-index: 1;
+    }
+
+    100% {
+        // transform: rotate(360deg);
+        // z-index: 3;
+    }
+}
