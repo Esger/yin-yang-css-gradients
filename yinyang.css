@@ -1,9 +1,23 @@
 html {
-  background-position: 0 0, 0 0, 50% 50%, 50% 50%;
-  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
 body {
-  height: 100vh;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: 50% 50%;
+  height: 100vmin;
   margin: 0;
-  background: radial-gradient(circle, transparent calc(60vmin / 2), #81d4fa calc(60vmin / 2) 100%);
+  display: flex;
+  place-content: center;
+}
+@media (orientation: landscape) {
+  body {
+    margin: 0 calc((100vmax - 100vmin) / 2);
+  }
+}
+@media (orientation: portrait) {
+  body {
+    margin: calc((100vmax - 100vmin) / 2) 0;
+  }
 }

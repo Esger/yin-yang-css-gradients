@@ -15,16 +15,29 @@
 @angle      : 90deg;
 
 html {
-    // background-image:
-    //     radial-gradient(circle at @blackDotX @blackDotY, @black @dotSize, @white 0 @quarterSize, transparent 0 100%),
-    //     radial-gradient(circle at @whiteDotX @whiteDotY, @white @dotSize, @black 0 @quarterSize, transparent 0 100%), linear-gradient(90deg, transparent 0 @centerX, @black @centerX 100%),
-    //     linear-gradient(90deg, @white 0 @centerX, transparent @centerX 100%);
-    background-position: 0 0, 0 0, 50% 50%, 50% 50%;
-    background-repeat  : no-repeat;
+    // background-position: 0 0;
+    // background-size    : 100vmin 100vmin;
+    width : 100vw;
+    height: 100vh;
 }
 
 body {
-    height    : 100vh;
-    margin    : 0;
-    background: radial-gradient(circle, transparent @halfSize, @foreGround @halfSize 100%);
+    background-repeat  : no-repeat;
+    background-origin  : content-box;
+    background-position: 50% 50%;
+    height             : 100vmin;
+    // width : 100vw;
+
+    @media (orientation: landscape) {
+        margin: 0 calc((100vmax - 100vmin) / 2);
+    }
+
+    @media (orientation: portrait) {
+        margin: calc((100vmax - 100vmin) / 2) 0;
+    }
+
+    margin          : 0;
+    display         : flex;
+    place-content   : center;
+    // background   : radial-gradient(circle, transparent @halfSize, @foreGround @halfSize 100%);
 }
